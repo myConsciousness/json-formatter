@@ -45,11 +45,6 @@ import lombok.ToString;
 public final class JsonFormatter implements Formatter {
 
     /**
-     * 整形対象のJSON文字列
-     */
-    private String json;
-
-    /**
      * 整形処理時のインデント数
      */
     private int indentFactor;
@@ -61,117 +56,48 @@ public final class JsonFormatter implements Formatter {
     }
 
     /**
-     * {@link JsonFormatter} クラスのインスタンスを生成するためのビルダークラスを返却します。
+     * コンストラクタ
      *
-     * @return {@link JsonFormatter} クラスのインスタンスを生成するためのビルダークラス
+     * @param indentFactor 整形時のインデント数
      */
-    public static Builder builder() {
-        return new Builder();
+    private JsonFormatter(int indentFactor) {
+        this.indentFactor = indentFactor;
+    }
+
+    /**
+     * {@link JsonFormatter} クラスの新しいインスタンスを生成し返却します。
+     *
+     * @return {@link JsonFormatter} クラスの新しいインスタンス
+     */
+    public static Formatter of() {
+        return new JsonFormatter();
+    }
+
+    /**
+     * 整形時のインデント数 {@code indentFactor} の値を基に {@link JsonFormatter}
+     * クラスの新しいインスタンスを生成し返却します。
+     * <p>
+     * 引数の {@code indentFactor} には {@code 0} 以上の整数を指定してください。
+     *
+     * @param indentFactor 整形時のインデント数
+     * @return {@link JsonFormatter} クラスの新しいインスタンス
+     */
+    public static Formatter ofIndentFactor(int indentFactor) {
+        return new JsonFormatter(indentFactor);
     }
 
     @Override
-    public String format() {
+    public String format(@NonNull final String json) {
 
-        if (this.json.isEmpty()) {
+        if (json.isEmpty()) {
             return "";
         }
 
         try {
-            return new JSONObject(this.json).toString(this.indentFactor);
+            return new JSONObject(json).toString(this.indentFactor);
         } catch (JSONException e) {
             throw new FormatHandlingException(String.format(
-                    "JSON string could not be converted to a JSON object. JSON string in case of a problem: %s",
-                    this.json));
-        }
-    }
-
-    /**
-     * {@link JsonFormatter} クラスのインスタンスを生成するためのビルダークラスです。
-     * <p>
-     * 整形対象のJSON文字列の指定は {@link #of(String)} メソッドを呼び出して行ってください。 整形時のインデント数は
-     * {@link #withIndentFactor(int)} メソッドを呼び出すことで指定できますが必須ではありません。
-     * {@link #withIndentFactor(int)} メソッドが呼び出されなかった場合は初期値として {@code 4} が使用されます。
-     * <p>
-     * パラメータの設定メソッドを呼び出した後は {@link #build()} メソッドを呼び出すことで {@link JsonFormatter}
-     * クラスの新しいインスタンスを取得することができます。
-     *
-     * @author Kato Shinya
-     * @since 1.0
-     * @version 1.0
-     *
-     * @see #of(String)
-     * @see #withIndentFactor(int)
-     * @see #build()
-     */
-    @ToString
-    @EqualsAndHashCode
-    public static class Builder {
-
-        /**
-         * 整形対象のJSON文字列
-         */
-        private String json;
-
-        /**
-         * 整形処理時のインデント数
-         */
-        private int indentFactor = 4;
-
-        /**
-         * デフォルトコンストラクタ
-         */
-        private Builder() {
-        }
-
-        /**
-         * 整形対象のJSON文字列を指定します。
-         * <p>
-         * この {@link #of(String)} メソッドは自分自身のインスタンスを返却するため後続処理をメソッドチェーンで行うことができます。
-         * <p>
-         * {@link #withIndentFactor(int)}
-         * メソッドを呼び出すことで整形処理時のインデント数を指定することができますが、インデント数の指定が必要ない場合は {@link #build()}
-         * メソッドを呼び出すことで {@link JsonFormatter} クラスの新しいインスタンスを取得することができます。
-         *
-         * @param json 整形対象のJSON文字列
-         * @return 自分自身のインスタンス
-         *
-         * @exception NullPointerException 引数として {@code null} が渡された場合
-         */
-        public Builder of(@NonNull String json) {
-            this.json = json;
-            return this;
-        }
-
-        /**
-         * 整形処理時のインデント数を指定します。
-         * <p>
-         * この {@link #withIndentFactor(int)}
-         * メソッドは自分自身のインスタンスを返却するため後続処理をメソッドチェーンで行うことができます。
-         * <p>
-         * {@link JsonFormatter} クラスのインスタンスを生成する際にこの {@link #withIndentFactor(int)}
-         * メソッドの呼び出しは必須ではありません。インデント数を指定する際には {@code 0} 以上の整数を指定してください。インデント数の指定後に
-         * {@link JsonFormatter} クラスのインスタンスを取得する場合は {@link #build()} メソッドを呼び出してください。
-         *
-         * @param indentFactor 整形時のインデント数
-         * @return
-         */
-        public Builder withIndentFactor(int indentFactor) {
-            this.indentFactor = indentFactor;
-            return this;
-        }
-
-        /**
-         * {@link #of(String)} メソッドと {@link #withIndentFactor(int)} メソッドで指定された値を基に
-         * {@link JsonFormatter} クラスの新しいインスタンスを生成し返却します。
-         *
-         * @return {@link JsonFormatter} クラスの新しいインスタンス
-         */
-        public Formatter build() {
-            JsonFormatter formatter = new JsonFormatter();
-            formatter.json = this.json;
-            formatter.indentFactor = this.indentFactor;
-
-            return formatter;
+                    "JSON string could not be converted to a JSON object. JSON string in case of a problem: %s", json));
         }
     }
 }
