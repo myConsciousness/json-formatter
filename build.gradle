@@ -33,6 +33,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
+application {
+    mainClassName = 'org.thinkit.formatter.EntryJsonFormatter'
+}
+
 test {
     // Use junit platform for unit tests
     useJUnitPlatform()
