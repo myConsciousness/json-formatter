@@ -34,6 +34,8 @@ public final class EntryJsonFormatter {
      * </ol>
      *
      * @param args コマンドライン引数
+     *
+     * @throws IllegalArgumentException 必須のコマンドライン引数が渡されたなかった場合
      */
     public static void main(String[] args) {
 
