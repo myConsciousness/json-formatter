@@ -90,7 +90,7 @@ public final class JsonFormatter implements Formatter {
      * <p>
      * 整形対象のJSON文字列の指定は {@link #of(String)} メソッドを呼び出して行ってください。 整形時のインデント数は
      * {@link #withIndentFactor(int)} メソッドを呼び出すことで指定できますが必須ではありません。
-     * {@link #withIndentFactor(int)} メソッドが呼び出されなかった場合は初期値として {@code 0} が使用されます。
+     * {@link #withIndentFactor(int)} メソッドが呼び出されなかった場合は初期値として {@code 4} が使用されます。
      * <p>
      * パラメータの設定メソッドを呼び出した後は {@link #build()} メソッドを呼び出すことで {@link JsonFormatter}
      * クラスの新しいインスタンスを取得することができます。
@@ -115,7 +115,7 @@ public final class JsonFormatter implements Formatter {
         /**
          * 整形処理時のインデント数
          */
-        private int indentFactor;
+        private int indentFactor = 4;
 
         /**
          * デフォルトコンストラクタ
