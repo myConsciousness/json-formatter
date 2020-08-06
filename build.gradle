@@ -27,6 +27,10 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    compile group: 'org.json', name: 'json', version: '20090211'
+
+    compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 test {
