@@ -37,6 +37,20 @@ application {
     mainClassName = 'org.thinkit.formatter.EntryJsonFormatter'
 }
 
+run {
+    if (project.hasProperty('json')) {
+        args project.json
+    } else {
+        args "{\"phonetype\":\"N95\",\"cat\":\"WP\"}"
+    }
+
+    if (project.hasProperty('indentFactor')) {
+        args project.indentFactor
+    } else {
+        args "4"
+    }
+}
+
 test {
     // Use junit platform for unit tests
     useJUnitPlatform()
