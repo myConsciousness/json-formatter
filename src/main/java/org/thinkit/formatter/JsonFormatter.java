@@ -47,7 +47,7 @@ public final class JsonFormatter implements Formatter {
     /**
      * 整形処理時のインデント数
      */
-    private int indentFactor;
+    private int indentFactor = 4;
 
     /**
      * デフォルトコンストラクタ
