@@ -28,8 +28,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    compile group: 'org.json', name: 'json', version: '20090211'
-
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
@@ -41,13 +39,13 @@ run {
     if (project.hasProperty('json')) {
         args project.json
     } else {
-        args "{\"demo1\":\"demo\",\"demo2\":\"demo\"}"
+        args "{\"demo1\": \"demo\",\"demo2\": \"demo\",\"demo3\": true}"
     }
 
-    if (project.hasProperty('indentFactor')) {
+    if (project.hasProperty('indent')) {
         args project.indentFactor
     } else {
-        args "4"
+        args "2"
     }
 }
 
