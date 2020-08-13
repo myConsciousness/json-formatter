@@ -14,10 +14,9 @@
 
 package org.thinkit.formatter;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.StringTokenizer;
+
 import org.thinkit.formatter.common.Formatter;
-import org.thinkit.formatter.common.exception.FormatHandlingException;
 
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
@@ -45,23 +44,34 @@ import lombok.ToString;
 public final class JsonFormatter implements Formatter {
 
     /**
+     * 空白
+     */
+    private static final String WHITESPACES = " \n\r\f\t";
+
+    /**
+     * 区切り文字
+     */
+    private static final String TOKEN_DELIMITER = "{[]}:\"," + WHITESPACES;
+
+    /**
      * 整形処理時のインデント数
      */
-    private int indentFactor = 4;
+    private int indent;
 
     /**
      * デフォルトコンストラクタ
      */
     private JsonFormatter() {
+        this.indent = 2;
     }
 
     /**
      * コンストラクタ
      *
-     * @param indentFactor 整形時のインデント数
+     * @param indent 整形時のインデント数
      */
-    private JsonFormatter(int indentFactor) {
-        this.indentFactor = indentFactor;
+    private JsonFormatter(int indent) {
+        this.indent = indent;
     }
 
     /**
@@ -74,16 +84,15 @@ public final class JsonFormatter implements Formatter {
     }
 
     /**
-     * 整形時のインデント数 {@code indentFactor} の値を基に {@link JsonFormatter}
-     * クラスの新しいインスタンスを生成し返却します。
+     * 整形時のインデント数 {@code indent} の値を基に {@link JsonFormatter} クラスの新しいインスタンスを生成し返却します。
      * <p>
-     * 引数の {@code indentFactor} には {@code 0} 以上の整数を指定してください。
+     * 引数の {@code indent} には {@code 0} 以上の整数を指定してください。
      *
-     * @param indentFactor 整形時のインデント数
+     * @param indent 整形時のインデント数
      * @return {@link JsonFormatter} クラスの新しいインスタンス
      */
-    public static Formatter ofIndentFactor(int indentFactor) {
-        return new JsonFormatter(indentFactor);
+    public static Formatter withIndent(int indent) {
+        return new JsonFormatter(indent);
     }
 
     @Override
@@ -93,11 +102,12 @@ public final class JsonFormatter implements Formatter {
             return "";
         }
 
-        try {
-            return new JSONObject(json).toString(this.indentFactor);
-        } catch (JSONException e) {
-            throw new FormatHandlingException(String.format(
-                    "JSON string could not be converted to a JSON object. JSON string in case of a problem: %s", json));
+        final StringTokenizer tokanizer = new StringTokenizer(json, TOKEN_DELIMITER, true);
+
+        while (tokanizer.hasMoreTokens()) {
+            System.out.println(tokanizer.nextToken());
         }
+
+        return "";
     }
 }

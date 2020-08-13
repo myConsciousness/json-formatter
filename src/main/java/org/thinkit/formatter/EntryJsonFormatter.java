@@ -45,8 +45,8 @@ public final class EntryJsonFormatter {
         }
 
         final String json = args[0];
-        final int indentFactor = args.length > 1 ? Integer.parseInt(args[1]) : 0;
+        final int indent = args.length > 1 ? Integer.parseInt(args[1]) : 0;
 
-        System.out.println(JsonFormatter.ofIndentFactor(indentFactor).format(json));
+        System.out.println(JsonFormatter.withIndent(indent).format(json));
     }
 }
