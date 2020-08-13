@@ -102,10 +102,10 @@ public final class JsonFormatter implements Formatter {
             return "";
         }
 
-        final StringTokenizer tokanizer = new StringTokenizer(json, TOKEN_DELIMITER, true);
+        final StringTokenizer tokenizer = new StringTokenizer(json, TOKEN_DELIMITER, true);
 
-        while (tokanizer.hasMoreTokens()) {
-            System.out.println(tokanizer.nextToken());
+        while (tokenizer.hasMoreTokens()) {
+            System.out.println(tokenizer.nextToken());
         }
 
         return "";
