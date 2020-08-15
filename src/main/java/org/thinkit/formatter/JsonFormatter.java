@@ -15,6 +15,7 @@
 package org.thinkit.formatter;
 
 import org.thinkit.common.catalog.Brace;
+import org.thinkit.common.catalog.Delimiter;
 import org.thinkit.formatter.common.Formatter;
 import org.thinkit.formatter.common.Tokenizable;
 
@@ -104,6 +105,10 @@ public final class JsonFormatter implements Formatter {
                 appender.appendToken().incrementIndent().appendNewline();
             } else if (Brace.end().equals(tokenizer.getLowercaseToken())) {
                 appender.decrementIndent().appendNewline().appendToken();
+            } else if (Delimiter.comma().equals(tokenizer.getLowercaseToken())) {
+                appender.appendToken().appendNewline();
+            } else if (Delimiter.colon().equals(tokenizer.getLowercaseToken())) {
+                appender.appendSpace().appendToken().appendSpace();
             } else {
                 appender.appendToken();
             }
