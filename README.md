@@ -1,6 +1,16 @@
-# json-formatter
+# JSON Formatter
 
-Json Formatter main repository
+This is a formatter for formatting JSON strings.
+
+By default, the formatting process is performed according to the following rules.
+
+- Indent is two half-width spaces
+- No space is left before the colon after the key string
+- Insert a single space after the colon
+- After the start brace, increase the number of indents and line breaks
+- After the start bracket, increase the number of indents and line breaks
+- After the end brace, decrease the number of indents and line breaks
+- After the end bracket, decrease the number of indents and line breaks
 
 # License
 
