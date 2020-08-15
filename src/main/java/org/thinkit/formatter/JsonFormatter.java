@@ -62,7 +62,7 @@ public final class JsonFormatter implements Formatter {
      * デフォルトコンストラクタ
      */
     private JsonFormatter() {
-        this.indent = 2;
+        this.indent = -1;
     }
 
     /**
