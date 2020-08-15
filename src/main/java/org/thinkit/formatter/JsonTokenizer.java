@@ -92,7 +92,7 @@ final class JsonTokenizer implements Tokenizable {
      *
      * @exception NullPointerException 引数として {@code null} が渡された場合
      */
-    public static JsonTokenizer of(@NonNull String json) {
+    public static Tokenizable of(@NonNull String json) {
         return new JsonTokenizer(json);
     }
 
