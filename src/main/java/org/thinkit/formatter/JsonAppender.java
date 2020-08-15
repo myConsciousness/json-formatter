@@ -196,6 +196,19 @@ final class JsonAppender {
     }
 
     /**
+     * 空白スペースを文字列へ追加します。
+     * <p>
+     * この {@link JsonAppender#appendNewLine()}
+     * メソッドは自分自身のインスタンスを返却するため、後続処理をメソッドチェーンの形式で行うことができます。
+     *
+     * @return 自分自身のインスタンス
+     */
+    public JsonAppender appendSpace() {
+        this.json.append(" ");
+        return this;
+    }
+
+    /**
      * {@link Indent} クラスをインクリメントします。
      * <p>
      * この {@link JsonAppender#increment()}
