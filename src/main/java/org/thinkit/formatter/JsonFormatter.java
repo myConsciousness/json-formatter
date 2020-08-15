@@ -15,6 +15,7 @@
 package org.thinkit.formatter;
 
 import org.thinkit.common.catalog.Brace;
+import org.thinkit.common.catalog.Bracket;
 import org.thinkit.common.catalog.Delimiter;
 import org.thinkit.formatter.common.Formatter;
 import org.thinkit.formatter.common.Tokenizable;
@@ -26,15 +27,8 @@ import lombok.ToString;
 /**
  * JSON文字列を整形する処理を定義したフォーマッタクラスです。
  * <p>
- * {JsonFormatter} クラスのインスタンスを取得する場合は静的メソッドの {@link #builder()}
- * メソッドを呼び出して各パラメータの設定を行い {@link Builder#build()} メソッドを呼び出してください。
- * {@link Builder#build()} メソッドを呼び出して取得した {@link JsonFormatter} クラスのインスタンスから
- * {@link #format()} メソッドを呼び出すことで整形後のJSON文字列を取得することができます。 {@link JsonFormatter}
- * クラスのインスタンス生成時に渡されたJSON文字列が {@code ""} の場合、 {@link #format()} メソッドは必ず
- * {@code ""} を返却します。
- * <p>
- * {@link #format()} メソッドの実行時に指定されたJSON文字列がJSONオブジェクトへ変換できなかった場合は
- * {@link FormatHandlingException} が必ず発生するため、例外が発生する場合は呼び出し元の実装を確認してください。
+ * {@link JsonFormatter} クラスのインスタンス生成時に渡されたJSON文字列が {@code ""} の場合、
+ * {@link #format()} メソッドは必ず {@code ""} を返却します。
  *
  * @author Kato Shinya
  * @since 1.0
@@ -77,7 +71,7 @@ public final class JsonFormatter implements Formatter {
     /**
      * 整形時のインデント数 {@code indent} の値を基に {@link JsonFormatter} クラスの新しいインスタンスを生成し返却します。
      * <p>
-     * 引数の {@code indent} には {@code 0} 以上の整数を指定してください。
+     * 引数の {@code indent} に負数が指定された場合はコンテンツ「JSON既定インデント項目」から既定値を取得し使用します。
      *
      * @param indent 整形時のインデント数
      * @return {@link JsonFormatter} クラスの新しいインスタンス
@@ -101,14 +95,22 @@ public final class JsonFormatter implements Formatter {
                 continue;
             }
 
-            if (Brace.start().equals(tokenizer.getLowercaseToken())) {
+            final String lowercaseToken = tokenizer.getLowercaseToken();
+
+            if (Brace.start().equals(lowercaseToken) || Bracket.start().equals(lowercaseToken)) {
                 appender.appendToken().incrementIndent().appendNewline();
-            } else if (Brace.end().equals(tokenizer.getLowercaseToken())) {
+            } else if (Brace.end().equals(lowercaseToken) || Bracket.end().equals(lowercaseToken)) {
                 appender.decrementIndent().appendNewline().appendToken();
-            } else if (Delimiter.comma().equals(tokenizer.getLowercaseToken())) {
+            } else if (Delimiter.comma().equals(lowercaseToken)) {
                 appender.appendToken().appendNewline();
-            } else if (Delimiter.colon().equals(tokenizer.getLowercaseToken())) {
-                appender.appendSpace().appendToken().appendSpace();
+
+                final String lastToken = tokenizer.getLastToken();
+
+                if (Brace.end().equals(lastToken) || Bracket.end().equals(lastToken)) {
+                    appender.appendNewline();
+                }
+            } else if (Delimiter.colon().equals(lowercaseToken)) {
+                appender.appendToken().appendSpace();
             } else {
                 appender.appendToken();
             }
