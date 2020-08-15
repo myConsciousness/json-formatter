@@ -33,6 +33,21 @@ import lombok.ToString;
 @EqualsAndHashCode
 public final class JsonDefaultIndentItemCollector implements Rule<JsonDefaultIndentItem> {
 
+    /**
+     * デフォルトコンストラクタ
+     */
+    private JsonDefaultIndentItemCollector() {
+    }
+
+    /**
+     * {@link JsonDefaultIndentItemCollector} クラスの新しいインスタンスを生成し返却します。
+     *
+     * @return {@link JsonDefaultIndentItemCollector} クラスの新しいインスタンス
+     */
+    public static Rule<JsonDefaultIndentItem> of() {
+        return new JsonDefaultIndentItemCollector();
+    }
+
     @Override
     public JsonDefaultIndentItem execute() {
         return ContentInvoker.of(JsonDefaultIndentItemLoader.of()).invoke();
