@@ -103,37 +103,43 @@ final class JsonTokenizer implements Tokenizable {
             return false;
         }
 
-        this.token = this.jsonTokenizer.nextToken();
-
         if (Quotation.doubleQuote().equals(this.token)) {
+            this.afterDoubleQuotation();
+        } else {
+            this.token = this.jsonTokenizer.nextToken();
+            this.lowercaseToken = this.token.toLowerCase(Locale.ROOT);
 
-            final StringBuilder sb = new StringBuilder(this.token);
-
-            while (jsonTokenizer.hasMoreTokens()) {
-                final String tokenAfterQuote = jsonTokenizer.nextToken();
-                this.lowercaseToken = tokenAfterQuote.toLowerCase(Locale.ROOT);
-                sb.append(tokenAfterQuote);
-
-                if (Quotation.doubleQuote().equals(tokenAfterQuote) && !"\\".equals(this.lastToken)) {
-                    break;
-                }
-
-                if (!this.isWhitespace(this.lowercaseToken)) {
-                    this.lastToken = this.lowercaseToken;
-                }
+            if (!this.isWhitespace(this.lowercaseToken)) {
+                this.lastToken = this.lowercaseToken;
             }
-
-            this.token = sb.toString();
-
-            return true;
-        }
-
-        this.lowercaseToken = this.token.toLowerCase(Locale.ROOT);
-
-        if (!this.isWhitespace(this.lowercaseToken)) {
-            this.lastToken = this.lowercaseToken;
         }
 
         return true;
+    }
+
+    /**
+     * ダブルクォーテーション以降のトークンを参照し文字列を生成します。生成された文字列は変数 {@code token} に格納されるため、
+     * {@link #getToken()} メソッドを呼び出すことで取得することができます。
+     */
+    private void afterDoubleQuotation() {
+
+        final StringBuilder sb = new StringBuilder(this.token);
+
+        while (jsonTokenizer.hasMoreTokens()) {
+            final String tokenAfterQuote = jsonTokenizer.nextToken();
+            sb.append(tokenAfterQuote);
+
+            this.lowercaseToken = tokenAfterQuote.toLowerCase(Locale.ROOT);
+
+            if (Quotation.doubleQuote().equals(tokenAfterQuote) && !"\\".equals(this.lastToken)) {
+                break;
+            }
+
+            if (!this.isWhitespace(this.lowercaseToken)) {
+                this.lastToken = this.lowercaseToken;
+            }
+        }
+
+        this.token = sb.toString();
     }
 }
