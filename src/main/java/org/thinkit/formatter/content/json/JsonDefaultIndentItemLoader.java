@@ -39,7 +39,7 @@ import lombok.ToString;
  */
 @ToString
 @EqualsAndHashCode
-@ContentMapping(content = "formatter/sql/JsonDefaultIndentItem")
+@ContentMapping(content = "formatter/json/JsonDefaultIndentItem")
 public final class JsonDefaultIndentItemLoader implements Content<JsonDefaultIndentItem> {
 
     /**
