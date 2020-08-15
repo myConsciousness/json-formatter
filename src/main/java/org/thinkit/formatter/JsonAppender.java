@@ -96,7 +96,7 @@ final class JsonAppender {
         /**
          * JSONトークナイザ
          */
-        private JsonTokenizer jsonTokenizer;
+        private Tokenizable jsonTokenizer;
 
         /**
          * インデント数
@@ -116,7 +116,7 @@ final class JsonAppender {
          *
          * @exception NullPointerException 引数として {@code null} が渡された場合
          */
-        public Builder register(@NonNull JsonTokenizer jsonTokenizer) {
+        public Builder register(@NonNull Tokenizable jsonTokenizer) {
             this.jsonTokenizer = jsonTokenizer;
             return this;
         }
