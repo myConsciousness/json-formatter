@@ -103,10 +103,11 @@ final class JsonTokenizer implements Tokenizable {
             return false;
         }
 
+        this.token = this.jsonTokenizer.nextToken();
+
         if (Quotation.doubleQuote().equals(this.token)) {
             this.afterDoubleQuotation();
         } else {
-            this.token = this.jsonTokenizer.nextToken();
             this.lowercaseToken = this.token.toLowerCase(Locale.ROOT);
 
             if (!this.isWhitespace(this.lowercaseToken)) {
