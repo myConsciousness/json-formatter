@@ -14,9 +14,9 @@
 
 package org.thinkit.formatter;
 
-import java.util.StringTokenizer;
-
+import org.thinkit.common.catalog.Brace;
 import org.thinkit.formatter.common.Formatter;
+import org.thinkit.formatter.common.Tokenizable;
 
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
@@ -42,16 +42,6 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public final class JsonFormatter implements Formatter {
-
-    /**
-     * 空白
-     */
-    private static final String WHITESPACES = " \n\r\f\t";
-
-    /**
-     * 区切り文字
-     */
-    private static final String TOKEN_DELIMITER = "{[]}:\"," + WHITESPACES;
 
     /**
      * 整形処理時のインデント数
@@ -102,12 +92,23 @@ public final class JsonFormatter implements Formatter {
             return "";
         }
 
-        final StringTokenizer tokenizer = new StringTokenizer(json, TOKEN_DELIMITER, true);
+        final Tokenizable tokenizer = JsonTokenizer.of(json);
+        final JsonAppender appender = JsonAppender.builder().register(tokenizer).withIndent(this.indent).build();
 
-        while (tokenizer.hasMoreTokens()) {
-            System.out.println(tokenizer.nextToken());
+        while (tokenizer.next()) {
+            if (tokenizer.isWhitespace(tokenizer.getToken())) {
+                continue;
+            }
+
+            if (Brace.start().equals(tokenizer.getLowercaseToken())) {
+                appender.appendToken().incrementIndent().appendNewline();
+            } else if (Brace.end().equals(tokenizer.getLowercaseToken())) {
+                appender.decrementIndent().appendNewline().appendToken();
+            } else {
+                appender.appendToken();
+            }
         }
 
-        return "";
+        return appender.toString();
     }
 }
