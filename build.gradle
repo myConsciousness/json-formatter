@@ -45,7 +45,7 @@ run {
     if (project.hasProperty('json')) {
         args project.json
     } else {
-        args "{\"demo1\": \"demo\",\"demo2\": \"demo\",\"demo3\": true}"
+        args "{\"demo1\": \"demo\",\"demo2\": \"demo\",\"dem\\\"o3\": true}"
     }
 
     if (project.hasProperty('indent')) {
