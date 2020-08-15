@@ -14,7 +14,12 @@
 
 package org.thinkit.formatter;
 
+import java.util.Locale;
 import java.util.StringTokenizer;
+
+import org.thinkit.common.catalog.Quotation;
+import org.thinkit.formatter.common.Tokenizable;
+import org.thinkit.formatter.common.catalog.Whitespace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -30,17 +35,12 @@ import lombok.ToString;
  */
 @ToString
 @EqualsAndHashCode
-final class JsonTokenizer {
-
-    /**
-     * 空白
-     */
-    private static final String WHITESPACES = " \n\r\f\t";
+final class JsonTokenizer implements Tokenizable {
 
     /**
      * 区切り文字
      */
-    private static final String TOKEN_DELIMITER = "{[]}:\"," + WHITESPACES;
+    private static final String TOKEN_DELIMITER = "{[]}:,\\\"" + Whitespace.stringify();
 
     /**
      * トークン
@@ -53,6 +53,12 @@ final class JsonTokenizer {
      */
     @Getter
     private String lowercaseToken;
+
+    /**
+     * 1つ前のトークン
+     */
+    @Getter
+    private String lastToken;
 
     /**
      * JSONのトークナイザー
@@ -90,4 +96,44 @@ final class JsonTokenizer {
         return new JsonTokenizer(json);
     }
 
+    @Override
+    public boolean next() {
+
+        if (!jsonTokenizer.hasMoreTokens()) {
+            return false;
+        }
+
+        this.token = this.jsonTokenizer.nextToken();
+
+        if (Quotation.doubleQuote().equals(this.token)) {
+
+            final StringBuilder sb = new StringBuilder(this.token);
+
+            while (jsonTokenizer.hasMoreTokens()) {
+                final String tokenAfterQuote = jsonTokenizer.nextToken();
+                this.lowercaseToken = tokenAfterQuote.toLowerCase(Locale.ROOT);
+                sb.append(tokenAfterQuote);
+
+                if (Quotation.doubleQuote().equals(tokenAfterQuote) && !"\\".equals(this.lastToken)) {
+                    break;
+                }
+
+                if (!this.isWhitespace(this.lowercaseToken)) {
+                    this.lastToken = this.lowercaseToken;
+                }
+            }
+
+            this.token = sb.toString();
+
+            return true;
+        }
+
+        this.lowercaseToken = this.token.toLowerCase(Locale.ROOT);
+
+        if (!this.isWhitespace(this.lowercaseToken)) {
+            this.lastToken = this.lowercaseToken;
+        }
+
+        return true;
+    }
 }
