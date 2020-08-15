@@ -108,11 +108,11 @@ final class JsonTokenizer implements Tokenizable {
         if (Quotation.doubleQuote().equals(this.token)) {
             this.afterDoubleQuotation();
         } else {
-            this.lowercaseToken = this.token.toLowerCase(Locale.ROOT);
-
             if (!this.isWhitespace(this.lowercaseToken)) {
                 this.lastToken = this.lowercaseToken;
             }
+
+            this.lowercaseToken = this.token.toLowerCase(Locale.ROOT);
         }
 
         return true;
@@ -130,14 +130,14 @@ final class JsonTokenizer implements Tokenizable {
             final String tokenAfterQuote = jsonTokenizer.nextToken();
             sb.append(tokenAfterQuote);
 
+            if (!this.isWhitespace(this.lowercaseToken)) {
+                this.lastToken = this.lowercaseToken;
+            }
+
             this.lowercaseToken = tokenAfterQuote.toLowerCase(Locale.ROOT);
 
             if (Quotation.doubleQuote().equals(tokenAfterQuote) && !"\\".equals(this.lastToken)) {
                 break;
-            }
-
-            if (!this.isWhitespace(this.lowercaseToken)) {
-                this.lastToken = this.lowercaseToken;
             }
         }
 
