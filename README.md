@@ -2,7 +2,7 @@
 
 ## What is it?
 
-**_This is a formatter for formatting JSON strings._**
+**_This is a formatter for JSON strings._**
 
 `JSON Formatter` is specialized in formatting JSON strings that do not use regular expressions and has no functions other than formatting. **_Therefore it is extremely lightweight besides can be expanded to meet user needs._**
 
