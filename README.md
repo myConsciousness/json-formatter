@@ -208,4 +208,5 @@ Regardless of the means or content of communication, I would love to hear from y
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/json-formatter/blob/master/LICENSE)
+- [Release Note](https://github.com/myConsciousness/json-formatter/releases)
 - [File a Bug](https://github.com/myConsciousness/json-formatter/issues)
