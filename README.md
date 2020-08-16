@@ -42,6 +42,18 @@ git clone https://github.com/myConsciousness/formatter-commons.git
 git clone https://github.com/myConsciousness/ontent-framework.git
 ```
 
+- Other dependencies on Gradle
+
+```gradle
+  compile 'org.apache.commons:commons-lang3:3.4'
+  compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+  compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
+  compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
+  compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.0'
+```
+
 ### 2. Add an import for [**_Json Fomratter_**](https://github.com/myConsciousness/json-formatter/blob/master/src/main/java/org/thinkit/formatter/JsonFormatter.java)
 
 ```java
