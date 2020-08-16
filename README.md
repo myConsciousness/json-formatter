@@ -46,8 +46,7 @@ git clone https://github.com/myConsciousness/ontent-framework.git
 
 ```gradle
   compile 'org.apache.commons:commons-lang3:3.4'
-  compileOnly 'org.projectlombok:lombok:1.18.12'
-	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+  compileOnly 'org.projectlombok:lombok:1.18.12' annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
   compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
   compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
