@@ -28,7 +28,7 @@ Add following dependencies. This process will soon be resolved by registering th
 - [`formatter-commons.jar`](https://github.com/myConsciousness/formatter-commons)
 - [`content-framework.jar`](https://github.com/myConsciousness/content-framework)
 
-### 2. Add an import for Json Fomratter
+### 2. Add an import for [Json Fomratter](https://github.com/myConsciousness/json-formatter/blob/master/src/main/java/org/thinkit/formatter/JsonFormatter.java)
 
 ```java
 import org.thinkit.formatter.JsonFormatter;
