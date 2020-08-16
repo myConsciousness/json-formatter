@@ -26,6 +26,7 @@ Add following dependencies. This process will soon be resolved by registering th
 
 - [`dev-utils.jar`](https://github.com/myConsciousness/dev-utils)
 - [`formatter-commons.jar`](https://github.com/myConsciousness/formatter-commons)
+- [`content-framework.jar`](https://github.com/myConsciousness/content-framework)
 
 ### 2. Add an import for Json Fomratter
 
