@@ -79,7 +79,7 @@ final class JsonTokenizer implements Tokenizable {
      * @exception NullPointerException 引数として {@code null} が渡された場合
      */
     private JsonTokenizer(@NonNull String json) {
-        this.jsonTokenizer = new StringTokenizer(json.trim(), TOKEN_DELIMITER, true);
+        this.jsonTokenizer = new StringTokenizer(json, TOKEN_DELIMITER, true);
         this.token = "";
         this.lowercaseToken = "";
     }
