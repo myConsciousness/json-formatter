@@ -24,8 +24,8 @@ By default, the formatting process is performed according to the following rules
 
 Add following dependencies. This process will soon be resolved by registering the jar and dependencies in the maven central repository.
 
-- `dev-utils.jar`
-- `formatter-commons.jar`
+- [`dev-utils.jar`](https://github.com/myConsciousness/dev-utils)
+- [`formatter-commons.jar`](https://github.com/myConsciousness/formatter-commons)
 
 ### 2. Add an import for Json Fomratter
 
