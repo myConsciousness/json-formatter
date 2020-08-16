@@ -59,8 +59,8 @@ String formattedJson = formatter.format(json);
 
 I have prepared the following unformatted json string for input/output reference. This is the template for my `content-framework`, but it's hard to see without any spaces or line breaks.
 
-```json
-    {\"metadata\": {\"author\": \"Kato Shinya\",\"since\": \"1.0\",\"version\": \"1.0\",\"creationDate\": \"2020/06/24\",\"encoding\": \"UTF-8\",\"description\": \"test\"},\"selectionNodes\": [{\"node\": {\"conditionId\": \"0\",\"test1\": \"test\",\"test2\": \"test\"}},{\"node\": {\"conditionId\": \"1\",\"test1\": \"test\",\"test2\": \"test\"}},{\"node\": {\"conditionId\": \"2\",\"test1\": \"test\",\"test2\": \"test\"}}],\"conditionNodes\": [{\"node\": {\"conditionId\": \"0\",\"exclude\": false,\"conditions\": [{\"keyName\": \"test\",\"operand\": \"=\",\"value\": \"0\"}]}},{\"node\": {\"conditionId\": \"1\",\"exclude\": false,\"conditions\": [{\"keyName\": \"test\",\"operand\": \"=\",\"value\": \"1\"}]}},{\"node\": {\"conditionId\": \"2\",\"exclude\": false,\"conditions\": [{\"keyName\": \"test\",\"operand\": \"=\",\"value\": \"2\"}]}}]}
+```
+    {"metadata":{"author":"KatoShinya","since":"1.0","version":"1.0","creationDate":"2020/06/24","encoding":"UTF-8","description":"test"},"selectionNodes":[{"node":{"conditionId":"0","test1":"test","test2":"test"}},{"node":{"conditionId":"1","test1":"test","test2":"test"}},{"node":{"conditionId":"2","test1":"test","test2":"test"}}],"conditionNodes":[{"node":{"conditionId":"0","exclude":false,"conditions":[{"keyName":"test","operand":"=","value":"0"}]}},{"node":{"conditionId":"1","exclude":false,"conditions":[{"keyName":"test","operand":"=","value":"1"}]}},{"node":{"conditionId":"2","exclude":false,"conditions":[{"keyName":"test","operand":"=","value":"2"}]}}]}
 ```
 
 Let's run `JSON Formatter` with the JSON string of above template as an argument.
@@ -70,6 +70,9 @@ JsonFormatter.of().format(json);
 ```
 
 The output is as follows.
+
+> _Note:_<br>
+> Whitespace in the JSON string before formatting is trimmed during the formatting process, so no pre-processing is required.
 
 ```json
 {
