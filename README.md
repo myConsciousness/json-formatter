@@ -82,7 +82,7 @@ Formatter formatter = JsonFormatter.withIndent(indent);
 String formattedJson = formatter.format(json);
 ```
 
-## I/O
+## Demonstrate I/O
 
 I have prepared the following unformatted json string for input/output reference. This is the json template for my `content-framework`, but it's hard to see without any spaces or line breaks.
 
