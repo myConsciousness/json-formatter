@@ -25,8 +25,22 @@ By default, the formatting process is performed according to the following rules
 Add following dependencies. This process will soon be resolved by registering the jar and dependencies in the maven central repository.
 
 - [`dev-utils.jar`](https://github.com/myConsciousness/dev-utils)
+
+```
+ git clone https://github.com/myConsciousness/dev-utils.git
+```
+
 - [`formatter-commons.jar`](https://github.com/myConsciousness/formatter-commons)
+
+```
+git clone https://github.com/myConsciousness/formatter-commons.git
+```
+
 - [`content-framework.jar`](https://github.com/myConsciousness/content-framework)
+
+```
+git clone https://github.com/myConsciousness/ontent-framework.git
+```
 
 ### 2. Add an import for [**_Json Fomratter_**](https://github.com/myConsciousness/json-formatter/blob/master/src/main/java/org/thinkit/formatter/JsonFormatter.java)
 
