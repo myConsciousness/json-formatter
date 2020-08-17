@@ -42,8 +42,33 @@ publishing {
 }
 
 repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/myConsciousness/dev-utils")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+        }
+    }
+
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/myConsciousness/formatter-commons")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+        }
+    }
+
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/myConsciousness/content-framework")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+        }
+    }
+
     jcenter()
 }
 
@@ -52,18 +77,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
 
-    compile 'org.apache.commons:commons-lang3:3.4'
-
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.0'
-
     compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     implementation 'org.thinkit.common:dev-utils:1.0-SNAPSHOT'
-
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation 'org.thinkit.formatter.common:formatter-commons:1.0-SNAPSHOT'
+    implementation 'org.thinkit.framework.content:content-framework:1.0-SNAPSHOT'
 }
 
 application {
