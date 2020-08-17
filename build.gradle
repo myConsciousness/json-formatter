@@ -16,12 +16,13 @@ plugins {
     id 'java'
     id 'application'
     id 'maven-publish'
+    id 'com.palantir.git-version' version '0.12.2'
 }
 
 publishing {
    publications {
         group 'org.thinkit.formatter'
-        version = System.getenv("GRADLE_PUBLISH_VERSION") ?: "1.0-SNAPSHOT"
+        version = gitVersion()
 
         gpr(MavenPublication) {
             from(components.java)
