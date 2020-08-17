@@ -18,7 +18,6 @@ plugins {
     id 'maven-publish'
 }
 
-
 publishing {
    publications {
         group 'org.thinkit.formatter'
@@ -46,8 +45,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/dev-utils")
         credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+            username = "myConsciousness"
+            password = "6d63002fe94486d5e4e56622db111aa367a911e0"
         }
     }
 
@@ -55,8 +54,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/formatter-commons")
         credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+            username = "myConsciousness"
+            password = "6d63002fe94486d5e4e56622db111aa367a911e0"
         }
     }
 
@@ -64,8 +63,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/content-framework")
         credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+            username = "myConsciousness"
+            password = "6d63002fe94486d5e4e56622db111aa367a911e0"
         }
     }
 
