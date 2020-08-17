@@ -34,8 +34,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/myConsciousness/json-formatter")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user")
+                password = project.findProperty("gpr.token")
             }
         }
     }
@@ -46,8 +46,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/dev-utils")
         credentials {
-            username = "myConsciousness"
-            password = "e14b43ba8fbbd6a1a448ba761dbb93305126aba2"
+            username = project.findProperty("gpr.user")
+            password = project.findProperty("download.package.token")
         }
     }
 
@@ -55,8 +55,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/formatter-commons")
         credentials {
-            username = "myConsciousness"
-            password = "e14b43ba8fbbd6a1a448ba761dbb93305126aba2"
+            username = project.findProperty("gpr.user")
+            password = project.findProperty("download.package.token")
         }
     }
 
@@ -64,8 +64,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/content-framework")
         credentials {
-            username = "myConsciousness"
-            password = "e14b43ba8fbbd6a1a448ba761dbb93305126aba2"
+            username = project.findProperty("gpr.user")
+            password = project.findProperty("download.package.token")
         }
     }
 
