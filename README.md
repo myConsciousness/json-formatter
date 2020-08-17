@@ -22,10 +22,10 @@ By default, the formatting process is performed according to the following rules
 
 ### 1. Add the dependencies
 
-**_Maven_**
-
 > Note:<br>
 > Replace `'vX.X.X'` with version you want to use. Check [Release Note](https://github.com/myConsciousness/json-formatter/releases).
+
+**_Maven_**
 
 ```xml
 <dependency>
