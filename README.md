@@ -24,6 +24,7 @@ By default, the formatting process is performed according to the following rules
 
 > Note:<br>
 > Replace `'vX.X.X'` with version you want to use. Check [Release Note](https://github.com/myConsciousness/json-formatter/releases).
+> Please contact me for a token to download the package.
 
 **_Maven_**
 
@@ -44,7 +45,7 @@ repositories {
         url = uri("https://maven.pkg.github.com/myConsciousness/json-formatter")
         credentials {
           username = "myConsciousness"
-          password = "c834280f89d2091ce049f63ea33082f81dfabe1a"
+          password = "xxxxxxxxxxxxxxxxxx"
         }
     }
 }
