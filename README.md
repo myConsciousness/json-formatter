@@ -43,8 +43,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/myConsciousness/json-formatter")
         credentials {
-          username = System.getenv("GITHUB_PACKAGE_USERNAME")
-          password = System.getenv("GITHUB_PACKAGE_TOKEN")
+          username = "myConsciousness"
+          password = "6d63002fe94486d5e4e56622db111aa367a911e0"
         }
     }
 }
