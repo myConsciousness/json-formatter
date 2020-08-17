@@ -34,6 +34,14 @@ By default, the formatting process is performed according to the following rules
   <artifactId>json-formatter</artifactId>
   <version>v1.0-24-g6b304c0</version>
 </dependency>
+
+<servers>
+  <server>
+    <id>github</id>
+    <username>myConsciousness</username>
+    <password>xxxxxxxxxxxxxxxxxx</password>
+  </server>
+</servers>
 ```
 
 **_Gradle_**
