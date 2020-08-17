@@ -44,7 +44,7 @@ repositories {
         url = uri("https://maven.pkg.github.com/myConsciousness/json-formatter")
         credentials {
           username = "myConsciousness"
-          password = "6d63002fe94486d5e4e56622db111aa367a911e0"
+          password = "c834280f89d2091ce049f63ea33082f81dfabe1a"
         }
     }
 }
