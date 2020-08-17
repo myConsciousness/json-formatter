@@ -23,7 +23,7 @@ By default, the formatting process is performed according to the following rules
 ### 1. Add the dependencies
 
 > Note:<br>
-> Replace `'vX.X.X'` with version you want to use. Check [Release Note](https://github.com/myConsciousness/json-formatter/releases).
+> Replace `'vX.X.X'` with version you want to use. Check [Release Note](https://github.com/myConsciousness/json-formatter/releases).<br>
 > Please contact me for a token to download the package.
 
 **_Maven_**
@@ -32,7 +32,7 @@ By default, the formatting process is performed according to the following rules
 <dependency>
   <groupId>org.thinkit.formatter</groupId>
   <artifactId>json-formatter</artifactId>
-  <version>vX.X.X</version>
+  <version>v1.0-24-g6b304c0</version>
 </dependency>
 ```
 
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.thinkit.formatter:json-formatter:vX.X.X'
+    implementation 'org.thinkit.formatter:json-formatter:v1.0-24-g6b304c0'
 }
 ```
 
