@@ -23,7 +23,7 @@ By default, the formatting process is performed according to the following rules
 ### 1. Add the dependencies
 
 > Note:<br>
-> Replace `'vX.X.X'` with version you want to use. Check [Release Note](https://github.com/myConsciousness/json-formatter/releases).<br>
+> Replace `'vX.X.X'` with version you want to use. Check the latest [Packages](https://github.com/myConsciousness/json-formatter/packages).<br>
 > Please contact me for a token to download the package.
 
 **_Maven_**
