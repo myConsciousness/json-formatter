@@ -63,7 +63,7 @@ dependencies {
 }
 ```
 
-### 2. Add an import for [**_Json Fomratter_**](https://github.com/myConsciousness/json-formatter/blob/master/src/main/java/org/thinkit/formatter/JsonFormatter.java)
+### 2. Add an import for [**_JSON Fomratter_**](https://github.com/myConsciousness/json-formatter/blob/master/src/main/java/org/thinkit/formatter/JsonFormatter.java)
 
 ```java
 import org.thinkit.formatter.JsonFormatter;
