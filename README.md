@@ -20,38 +20,38 @@ By default, the formatting process is performed according to the following rules
 
 ## How To Use
 
-### 1. Add the dependencies on Json Fomratter
+### 1. Add the dependencies
 
-Add following dependencies. This process will soon be resolved by registering the jar and dependencies in the maven central repository.
+**_Maven_**
 
-- [`dev-utils.jar`](https://github.com/myConsciousness/dev-utils)
+> Note:<br>
+> Replace `'vX.X.X'` with version you want to use. Check [Release Note](https://github.com/myConsciousness/json-formatter/releases).
 
-```
- git clone https://github.com/myConsciousness/dev-utils.git
-```
-
-- [`formatter-commons.jar`](https://github.com/myConsciousness/formatter-commons)
-
-```
-git clone https://github.com/myConsciousness/formatter-commons.git
-```
-
-- [`content-framework.jar`](https://github.com/myConsciousness/content-framework)
-
-```
-git clone https://github.com/myConsciousness/ontent-framework.git
+```xml
+<dependency>
+  <groupId>org.thinkit.formatter</groupId>
+  <artifactId>json-formatter</artifactId>
+  <version>vX.X.X</version>
+</dependency>
 ```
 
-- Other dependencies on Gradle
+**_Gradle_**
 
 ```gradle
-  compile 'org.apache.commons:commons-lang3:3.4'
-  compileOnly 'org.projectlombok:lombok:1.18.12'
-  annotationProcessor 'org.projectlombok:lombok:1.18.12'
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/myConsciousness/json-formatter")
+        credentials {
+          username = System.getenv("GITHUB_PACKAGE_USERNAME")
+          password = System.getenv("GITHUB_PACKAGE_TOKEN")
+        }
+    }
+}
 
-  compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
-  compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
-  compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.0'
+dependencies {
+    implementation 'org.thinkit.formatter:json-formatter:vX.X.X'
+}
 ```
 
 ### 2. Add an import for [**_Json Fomratter_**](https://github.com/myConsciousness/json-formatter/blob/master/src/main/java/org/thinkit/formatter/JsonFormatter.java)
@@ -209,4 +209,5 @@ Regardless of the means or content of communication, I would love to hear from y
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/json-formatter/blob/master/LICENSE)
 - [Release Note](https://github.com/myConsciousness/json-formatter/releases)
+- [Package](https://github.com/myConsciousness/json-formatter/packages)
 - [File a Bug](https://github.com/myConsciousness/json-formatter/issues)
