@@ -80,7 +80,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    implementation 'org.thinkit.common:dev-utils:1.0-SNAPSHOT'
+    implementation 'org.thinkit.common:dev-utils:v1.0.0'
     implementation 'org.thinkit.formatter.common:formatter-commons:1.0-SNAPSHOT'
     implementation 'org.thinkit.framework.content:content-framework:1.0-SNAPSHOT'
 }
