@@ -25,7 +25,6 @@ public final class EntryJsonFormatter {
 
     /**
      * 与えられたコマンドライン引数から {@link JsonFormatter} クラスの処理を開始します。
-     * <p>
      * コマンドライン引数には以下の値を指定してください。
      *
      * <ol>
