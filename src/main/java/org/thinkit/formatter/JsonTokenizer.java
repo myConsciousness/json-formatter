@@ -79,7 +79,7 @@ final class JsonTokenizer implements Tokenizable {
      * @return 空白の文字列集合
      */
     private static String getWhitespaces() {
-        return BiCatalog.stream(Whitespace.class).collect(Collectors.toList()).toString();
+        return BiCatalog.stream(Whitespace.class).map(e -> e.getTag()).collect(Collectors.toList()).toString();
     }
 
     /**
