@@ -16,7 +16,9 @@ package org.thinkit.formatter;
 
 import java.util.Locale;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
+import org.thinkit.api.catalog.BiCatalog;
 import org.thinkit.common.catalog.Quotation;
 import org.thinkit.formatter.common.Tokenizable;
 import org.thinkit.formatter.common.catalog.Whitespace;
@@ -40,7 +42,7 @@ final class JsonTokenizer implements Tokenizable {
     /**
      * 区切り文字
      */
-    private static final String TOKEN_DELIMITER = "{[]}:,\\\"" + Whitespace.stringify();
+    private static final String TOKEN_DELIMITER = "{[]}:,\\\"" + getWhitespaces();
 
     /**
      * トークン
@@ -69,6 +71,15 @@ final class JsonTokenizer implements Tokenizable {
      * デフォルトコンストラクタ
      */
     private JsonTokenizer() {
+    }
+
+    /**
+     * 空白の文字列集合を返却します。
+     *
+     * @return 空白の文字列集合
+     */
+    private static String getWhitespaces() {
+        return BiCatalog.stream(Whitespace.class).collect(Collectors.toList()).toString();
     }
 
     /**
