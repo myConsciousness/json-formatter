@@ -32,7 +32,7 @@ By default, the formatting process is performed according to the following rules
 <dependency>
   <groupId>org.thinkit.formatter</groupId>
   <artifactId>json-formatter</artifactId>
-  <version>v1.0-24-g6b304c0</version>
+  <version>v1.0.1</version>
 </dependency>
 
 <servers>
@@ -59,7 +59,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.thinkit.formatter:json-formatter:v1.0-24-g6b304c0'
+    implementation 'org.thinkit.formatter:json-formatter:v1.0.1'
 }
 ```
 
