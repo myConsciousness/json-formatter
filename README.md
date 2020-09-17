@@ -22,7 +22,7 @@ By default, the formatting process is performed according to the following rules
 
 ### 1. Add the dependencies
 
-> Note:<br>
+> **_Note:_**<br>
 > Replace version you want to use. Check the latest [Packages](https://github.com/myConsciousness/json-formatter/packages).<br>
 > Please contact me for a token to download the package.
 
