@@ -54,13 +54,7 @@ repositories {
     jcenter()
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-tasks.withType(Javadoc) {
-    options.encoding = "UTF-8"
-}
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
@@ -73,7 +67,7 @@ dependencies {
     implementation 'org.thinkit.common:dev-utils:v1.0.1'
     implementation 'org.thinkit.formatter.common:formatter-commons:v1.0.1'
     implementation 'org.thinkit.framework.content:content-framework:v1.0.2'
-    implementation 'org.thinkit.api.catalog:catalog-api:v1.0.1'
+    implementation 'org.thinkit.api.catalog:catalog-api:v1.0.2'
 }
 
 application {
