@@ -7,6 +7,18 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [What is it?](#what-is-it)
+- [How To Use](#how-to-use)
+  - [1. Add the dependencies](#1-add-the-dependencies)
+  - [2. Add an import for **_JSON Fomratter_**](#2-add-an-import-for-_json-fomratter_)
+  - [3. Create a instance](#3-create-a-instance)
+  - [4. Format](#4-format)
+- [Demonstrate I/O](#demonstrate-io)
+- [License](#license)
+- [More Information](#more-information)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## What is it?
