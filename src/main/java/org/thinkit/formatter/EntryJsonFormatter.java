@@ -18,10 +18,11 @@ package org.thinkit.formatter;
  * {@link JsonFormatter} クラスをコマンドラインから実行する際のエントリーポイントです。
  *
  * @author Kato Shinya
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
+ * @deprecated
  */
-public final class EntryJsonFormatter {
+@Deprecated
+final class EntryJsonFormatter {
 
     /**
      * 与えられたコマンドライン引数から {@link JsonFormatter} クラスの処理を開始します。
