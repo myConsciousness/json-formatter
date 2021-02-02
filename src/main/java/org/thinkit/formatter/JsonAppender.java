@@ -25,7 +25,9 @@ import org.thinkit.formatter.content.json.JsonDefaultIndentItemLoader;
 import org.thinkit.formatter.content.json.entity.JsonDefaultIndentItem;
 import org.thinkit.framework.content.ContentInvoker;
 
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 /**
@@ -34,10 +36,10 @@ import lombok.NonNull;
  * 生成した文字列は {@link #toString()} メソッドを使用することで取得することができます。
  *
  * @author Kato Shinya
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
  */
 @EqualsAndHashCode
+@NoArgsConstructor(access = AccessLevel.PRIVATE, staticName = "newInstance")
 final class JsonAppender {
 
     /**
@@ -61,21 +63,6 @@ final class JsonAppender {
     private Line newline;
 
     /**
-     * デフォルトコンストラクタ
-     */
-    private JsonAppender() {
-    }
-
-    /**
-     * {@link JsonAppender} クラスの新しいインスタンスを生成し返却します。
-     *
-     * @return {@link JsonAppender} クラスの新しいインスタンス
-     */
-    private static JsonAppender of() {
-        return new JsonAppender();
-    }
-
-    /**
      * {@link JsonAppender} クラスのインスタンスを生成する {@link Builder} クラスの新しいインスタンスを生成し返却します。
      *
      * @return {@link Builder} クラスの新しいインスタンス
@@ -88,8 +75,7 @@ final class JsonAppender {
      * {@link JsonAppender} クラスのインスタンスを生成する処理を定義したビルダークラスです。
      *
      * @author Kato Shinya
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
      */
     public static class Builder {
 
@@ -150,7 +136,7 @@ final class JsonAppender {
         public JsonAppender build() {
             Preconditions.requireNonNull(this.jsonTokenizer);
 
-            final JsonAppender appender = JsonAppender.of();
+            final JsonAppender appender = JsonAppender.newInstance();
             appender.json = new StringBuilder();
             appender.jsonTokenizer = this.jsonTokenizer;
 

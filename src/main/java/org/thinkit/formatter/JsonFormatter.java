@@ -20,7 +20,9 @@ import org.thinkit.common.catalog.Delimiter;
 import org.thinkit.formatter.common.Formatter;
 import org.thinkit.formatter.common.Tokenizable;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
 
@@ -31,54 +33,18 @@ import lombok.ToString;
  * {@link #format()} メソッドは必ず {@code ""} を返却します。
  *
  * @author Kato Shinya
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
  */
 @ToString
 @EqualsAndHashCode
+@NoArgsConstructor(staticName = "newInstance")
+@AllArgsConstructor(staticName = "from")
 public final class JsonFormatter implements Formatter {
 
     /**
      * 整形処理時のインデント数
      */
-    private int indent;
-
-    /**
-     * デフォルトコンストラクタ
-     */
-    private JsonFormatter() {
-        this.indent = -1;
-    }
-
-    /**
-     * コンストラクタ
-     *
-     * @param indent 整形時のインデント数
-     */
-    private JsonFormatter(int indent) {
-        this.indent = indent;
-    }
-
-    /**
-     * {@link JsonFormatter} クラスの新しいインスタンスを生成し返却します。
-     *
-     * @return {@link JsonFormatter} クラスの新しいインスタンス
-     */
-    public static Formatter of() {
-        return new JsonFormatter();
-    }
-
-    /**
-     * 整形時のインデント数 {@code indent} の値を基に {@link JsonFormatter} クラスの新しいインスタンスを生成し返却します。
-     * <p>
-     * 引数の {@code indent} に負数が指定された場合はコンテンツ「JSON既定インデント項目」から既定値を取得し使用します。
-     *
-     * @param indent 整形時のインデント数
-     * @return {@link JsonFormatter} クラスの新しいインスタンス
-     */
-    public static Formatter withIndent(int indent) {
-        return new JsonFormatter(indent);
-    }
+    private int indent = -1;
 
     @Override
     public String format(@NonNull final String json) {
