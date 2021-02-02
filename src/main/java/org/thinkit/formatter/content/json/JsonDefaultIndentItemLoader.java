@@ -14,9 +14,9 @@
 
 package org.thinkit.formatter.content.json;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.thinkit.api.catalog.Catalog;
 import org.thinkit.formatter.common.catalog.IndentType;
@@ -27,6 +27,7 @@ import org.thinkit.framework.content.Content;
 import org.thinkit.framework.content.annotation.ContentMapping;
 
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
@@ -34,28 +35,13 @@ import lombok.ToString;
  * コンテンツ「JSON既定インデント項目」の情報をロードするコンテンツクラスです。
  *
  * @author Kato Shinya
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
  */
 @ToString
 @EqualsAndHashCode
+@NoArgsConstructor(staticName = "newInstance")
 @ContentMapping(content = "formatter/json/JsonDefaultIndentItem")
 public final class JsonDefaultIndentItemLoader implements Content<JsonDefaultIndentItem> {
-
-    /**
-     * デフォルトコンストラクタ
-     */
-    private JsonDefaultIndentItemLoader() {
-    }
-
-    /**
-     * {@link JsonDefaultIndentItemLoader} クラスの新しいインスタンスを生成し返却します。
-     *
-     * @return {@link JsonDefaultIndentItemLoader} クラスの新しいインスタンス
-     */
-    public static Content<JsonDefaultIndentItem> of() {
-        return new JsonDefaultIndentItemLoader();
-    }
 
     /**
      * コンテンツ要素定数
@@ -93,28 +79,22 @@ public final class JsonDefaultIndentItemLoader implements Content<JsonDefaultInd
 
     @Override
     public JsonDefaultIndentItem execute() {
-        final Map<String, String> content = this.loadContent(this.getClass()).get(0);
 
-        return JsonDefaultIndentItem.of(
-                Catalog.getEnum(IndentType.class,
-                        Integer.parseInt(content.get(ContentAttribute.INDENT_TYPE.getString()))),
-                Integer.parseInt(content.get(ContentAttribute.INDENT.getString())));
+        final Map<String, String> content = this.loadContent(this).get(0);
+
+        return JsonDefaultIndentItem.builder()
+                .indentType(Catalog.getEnum(IndentType.class,
+                        Integer.parseInt(content.get(ContentAttribute.INDENT_TYPE.getString()))))
+                .indent(Integer.parseInt(content.get(ContentAttribute.INDENT.getString()))).build();
     }
 
     @Override
-    public List<Attribute> getAttributes() {
-
-        final List<Attribute> attributes = new ArrayList<>();
-
-        for (Attribute attribute : ContentAttribute.values()) {
-            attributes.add(attribute);
-        }
-
-        return attributes;
+    public Set<Attribute> getAttributes() {
+        return Set.of(ContentAttribute.INDENT_TYPE, ContentAttribute.INDENT);
     }
 
     @Override
-    public Map<Condition, String> getConditions() {
-        return null;
+    public List<Map<Condition, String>> getConditions() {
+        return List.of();
     }
 }

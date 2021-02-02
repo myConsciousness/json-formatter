@@ -14,16 +14,16 @@
 
 package org.thinkit.formatter;
 
-import org.thinkit.common.Precondition;
+import org.thinkit.common.base.precondition.Preconditions;
 import org.thinkit.common.exception.LogicException;
 import org.thinkit.formatter.common.Indent;
 import org.thinkit.formatter.common.Indentable;
 import org.thinkit.formatter.common.Line;
 import org.thinkit.formatter.common.Newline;
 import org.thinkit.formatter.common.Tokenizable;
+import org.thinkit.formatter.content.json.JsonDefaultIndentItemLoader;
 import org.thinkit.formatter.content.json.entity.JsonDefaultIndentItem;
-import org.thinkit.formatter.content.json.rule.JsonDefaultIndentItemCollector;
-import org.thinkit.framework.content.rule.RuleInvoker;
+import org.thinkit.framework.content.ContentInvoker;
 
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
@@ -148,15 +148,15 @@ final class JsonAppender {
          *                        {@code null} の場合
          */
         public JsonAppender build() {
-            Precondition.requireNonNull(this.jsonTokenizer);
+            Preconditions.requireNonNull(this.jsonTokenizer);
 
             final JsonAppender appender = JsonAppender.of();
             appender.json = new StringBuilder();
             appender.jsonTokenizer = this.jsonTokenizer;
 
             if (this.indent < 0) {
-                final JsonDefaultIndentItem defaultIndentItem = RuleInvoker.of(JsonDefaultIndentItemCollector.of())
-                        .invoke();
+                final JsonDefaultIndentItem defaultIndentItem = ContentInvoker
+                        .of(JsonDefaultIndentItemLoader.newInstance()).invoke();
                 appender.indent = Indent.builder().withIndent(defaultIndentItem.getIndent())
                         .withIndentType(defaultIndentItem.getIndentType()).build();
             } else {
