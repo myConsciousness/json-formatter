@@ -1,4 +1,13 @@
+![Build](https://img.shields.io/badge/Build-Automated-2980b9.svg?style=for-the-badge)
+![Latest Version](https://img.shields.io/badge/Latest_Version-v1.0.1-27ae60.svg?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Apache_2.0-e74c3c.svg?style=for-the-badge)</br>
+![Java CI with Gradle](https://github.com/myConsciousness/json-formatter/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
+
 # JSON Formatter
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## What is it?
 
@@ -77,14 +86,14 @@ Formatter formatter = JsonFormatter.of();
 
 You can also create an instance with a specific number of indents as following.
 
-> _Note:_<br>
+> _Note:_</br>
 > If a negative indentation is passed at instantiation time, the initial value defined in the [content file](https://github.com/myConsciousness/json-formatter/blob/master/src/main/resources/content/formatter/json/JsonDefaultIndentItem.json) takes precedence.
 
 ```java
 Formatter formatter = JsonFormatter.withIndent(indent);
 ```
 
-### 4. Format!
+### 4. Format
 
 ```java
 Formatter formatter = JsonFormatter.withIndent(indent);
@@ -95,7 +104,7 @@ String formattedJson = formatter.format(json);
 
 I have prepared the following unformatted json string for input/output reference. This is the json template for my `content-framework`, but it's hard to see without any spaces or line breaks.
 
-```
+```txt
     {"metadata":{"author":"KatoShinya","since":"1.0","version":"1.0","creationDate":"2020/06/24","encoding":"UTF-8","description":"test"},"selectionNodes":[{"node":{"conditionId":"0","test1":"test","test2":"test"}},{"node":{"conditionId":"1","test1":"test","test2":"test"}},{"node":{"conditionId":"2","test1":"test","test2":"test"}}],"conditionNodes":[{"node":{"conditionId":"0","exclude":false,"conditions":[{"keyName":"test","operand":"=","value":"0"}]}},{"node":{"conditionId":"1","exclude":false,"conditions":[{"keyName":"test","operand":"=","value":"1"}]}},{"node":{"conditionId":"2","exclude":false,"conditions":[{"keyName":"test","operand":"=","value":"2"}]}}]}
 ```
 
@@ -107,7 +116,7 @@ JsonFormatter.of().format(json);
 
 The output is as follows.
 
-> _Note:_<br>
+> _Note:_</br>
 > Whitespace in the JSON string before formatting is trimmed during the formatting process, so no pre-processing is required.
 
 ```json
@@ -195,7 +204,7 @@ The output is as follows.
 
 ## License
 
-```
+```license
 Copyright 2020 Kato Shinya.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
@@ -216,7 +225,9 @@ the License.
 Regardless of the means or content of communication, I would love to hear from you if you have any questions or concerns. I do not check my email box very often so a response may be delayed, anyway thank you for your interest!
 
 - [Creator Profile](https://github.com/myConsciousness)
+- [Creator Website](https://myconsciousness.github.io/)
 - [License](https://github.com/myConsciousness/json-formatter/blob/master/LICENSE)
 - [Release Note](https://github.com/myConsciousness/json-formatter/releases)
 - [Package](https://github.com/myConsciousness/json-formatter/packages)
 - [File a Bug](https://github.com/myConsciousness/json-formatter/issues)
+- [Reference](https://myconsciousness.github.io/json-formatter/)
