@@ -1,11 +1,11 @@
 ---
-name: Feature Request
-about: Request for new features to be added
-labels: "enhancement"
+name: Add New Feature
+about: I have a good idea for a new feature.
+labels: "Type: new feature"
 assignees: "myConsciousness"
 ---
 
-# Feature Request
+# Add New Feature
 
 ## 1. Feature details
 

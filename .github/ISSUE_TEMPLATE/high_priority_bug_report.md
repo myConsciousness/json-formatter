@@ -1,11 +1,11 @@
 ---
-name: Bug Report
-about: Report a bug to improve functionality
-labels: "bug"
+name: High Priority Bug Report
+about: Something doesn't work.
+labels: "Priority: high, Problem: bug"
 assignees: "myConsciousness"
 ---
 
-# Bug Report
+# High Priotity Bug Report
 
 ## 1. Bug Details
 
