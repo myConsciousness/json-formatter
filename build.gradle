@@ -12,11 +12,13 @@
  * the License.
  */
 
+import io.franzbecker.gradle.lombok.task.DelombokTask
+
 plugins {
     id 'java'
-    id 'application'
     id 'maven-publish'
     id 'com.palantir.git-version' version '0.12.2'
+    id 'io.franzbecker.gradle-lombok' version '4.0.0'
 }
 
 publishing {
@@ -64,31 +66,46 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    implementation 'org.thinkit.common:dev-utils:v1.0.1'
+    implementation 'org.thinkit.common:precondition-validator:v1.1.0'
     implementation 'org.thinkit.formatter.common:formatter-commons:v1.0.1'
-    implementation 'org.thinkit.framework.content:content-framework:v1.0.2'
+    implementation 'org.thinkit.framework.content:content-framework:v1.1.0'
     implementation 'org.thinkit.api.catalog:catalog-api:v1.0.2'
 }
 
-application {
-    mainClassName = 'org.thinkit.formatter.EntryJsonFormatter'
+lombok {
+    version = "1.18.16"
 }
 
-run {
-    if (project.hasProperty('json')) {
-        args project.json
-    } else {
-        args "   　　　 {\"metadata\":{\"author\":\"Kato Shinya\",\"since\": \"1.0\",\"version\": \"1.0\",\"creationDate\": \"2020/06/24\",\"encoding\": \"UTF-8\",\"description\": \"test\"},\"selectionNodes\": [{\"node\": {\"conditionId\": \"0\",\"test1\": \"test\",\"test2\": \"test\"}},{\"node\": {\"conditionId\": \"1\",\"test1\": \"test\",\"test2\": \"test\"}},{\"node\": {\"conditionId\": \"2\",\"test1\": \"test\",\"test2\": \"test\"}}],\"conditionNodes\": [{\"node\": {\"conditionId\": \"0\",\"exclude\": false,\"conditions\": [{\"keyName\": \"test\",\"operand\": \"=\",\"value\": \"0\"}]}},{\"node\": {\"conditionId\": \"1\",\"exclude\": false,\"conditions\": [{\"keyName\": \"test\",\"operand\": \"=\",\"value\": \"1\"}]}},{\"node\": {\"conditionId\": \"2\",\"exclude\": false,\"conditions\": [{\"keyName\": \"test\",\"operand\": \"=\",\"value\": \"2\"}]}}]}"
-    }
+task delombok( type: DelombokTask ) {
+    description = 'Generates delomboked source.'
 
-    if (project.hasProperty('indent')) {
-        args project.indentFactor
-    } else {
-        args "-1"
+    sourceSets.all {
+        if ( it.name != SourceSet.TEST_SOURCE_SET_NAME ) {
+            it.allJava.srcDirs.each {
+                args( it, '-d', "${buildDir}/${delombok.name}" )
+            }
+        }
     }
 }
 
 test {
-    // Use junit platform for unit tests
     useJUnitPlatform()
+
+    testLogging {
+        showStandardStreams true
+        events 'started', 'skipped', 'passed', 'failed'
+        exceptionFormat 'full'
+    }
+}
+
+javadoc {
+    dependsOn delombok
+
+    source = file( "${buildDir}/${delombok.name}" )
+    title = 'JSON Formatter'
+    options.links('https://docs.oracle.com/en/java/javase/13/docs/api/')
+    options.charSet("utf-8")
+    options.showFromPublic()
+    destinationDir = file('./docs')
+    failOnError = false
 }
