@@ -15,7 +15,6 @@
 package org.thinkit.formatter.json;
 
 import org.thinkit.common.base.precondition.Preconditions;
-import org.thinkit.common.exception.LogicException;
 import org.thinkit.formatter.common.Indent;
 import org.thinkit.formatter.common.Indentable;
 import org.thinkit.formatter.common.Line;
@@ -128,10 +127,6 @@ final class JsonAppender {
          * {@link NullPointerException} が実行時に必ず発生します。
          *
          * @return {@link JsonAppender} クラスの新しいインスタンス
-         *
-         * @throws LogicException {@link #register(JsonTokenizer)} メソッドが呼び出されていない場合、または
-         *                        {@link #register(JsonTokenizer)} メソッドで設定された値が
-         *                        {@code null} の場合
          */
         public JsonAppender build() {
             Preconditions.requireNonNull(this.jsonTokenizer);

@@ -14,11 +14,11 @@
 
 package org.thinkit.formatter.json;
 
-import org.thinkit.common.catalog.Brace;
-import org.thinkit.common.catalog.Bracket;
-import org.thinkit.common.catalog.Delimiter;
 import org.thinkit.formatter.common.Formatter;
 import org.thinkit.formatter.common.Tokenizable;
+import org.thinkit.formatter.json.catalog.Brace;
+import org.thinkit.formatter.json.catalog.Bracket;
+import org.thinkit.formatter.json.catalog.Delimiter;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -30,7 +30,7 @@ import lombok.ToString;
  * JSON文字列を整形する処理を定義したフォーマッタクラスです。
  * <p>
  * {@link JsonFormatter} クラスのインスタンス生成時に渡されたJSON文字列が {@code ""} の場合、
- * {@link #format()} メソッドは必ず {@code ""} を返却します。
+ * {@link #format(String)} メソッドは必ず {@code ""} を返却します。
  *
  * @author Kato Shinya
  * @since 1.0.0
@@ -63,19 +63,19 @@ public final class JsonFormatter implements Formatter {
 
             final String lowercaseToken = tokenizer.getLowercaseToken();
 
-            if (Brace.start().equals(lowercaseToken) || Bracket.start().equals(lowercaseToken)) {
+            if (Brace.START.getTag().equals(lowercaseToken) || Bracket.START.getTag().equals(lowercaseToken)) {
                 appender.appendToken().incrementIndent().appendNewline();
-            } else if (Brace.end().equals(lowercaseToken) || Bracket.end().equals(lowercaseToken)) {
+            } else if (Brace.END.getTag().equals(lowercaseToken) || Bracket.END.getTag().equals(lowercaseToken)) {
                 appender.decrementIndent().appendNewline().appendToken();
-            } else if (Delimiter.comma().equals(lowercaseToken)) {
+            } else if (Delimiter.COMMA.getTag().equals(lowercaseToken)) {
                 appender.appendToken().appendNewline();
 
                 final String lastToken = tokenizer.getLastToken();
 
-                if (Brace.end().equals(lastToken) || Bracket.end().equals(lastToken)) {
+                if (Bracket.END.getTag().equals(lastToken) || Bracket.END.getTag().equals(lastToken)) {
                     appender.appendNewline();
                 }
-            } else if (Delimiter.colon().equals(lowercaseToken)) {
+            } else if (Delimiter.COMMA.getTag().equals(lowercaseToken)) {
                 appender.appendToken().appendSpace();
             } else {
                 appender.appendToken();

@@ -19,9 +19,9 @@ import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 import org.thinkit.api.catalog.BiCatalog;
-import org.thinkit.common.catalog.Quotation;
 import org.thinkit.formatter.common.Tokenizable;
 import org.thinkit.formatter.common.catalog.Whitespace;
+import org.thinkit.formatter.json.catalog.Quotation;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -115,7 +115,7 @@ final class JsonTokenizer implements Tokenizable {
 
         this.token = this.jsonTokenizer.nextToken();
 
-        if (Quotation.doubleQuote().equals(this.token)) {
+        if (Quotation.DOUBLE_QUOTATION.getTag().equals(this.token)) {
             this.afterDoubleQuotation();
         } else {
             if (!this.isWhitespace(this.lowercaseToken)) {
@@ -146,7 +146,7 @@ final class JsonTokenizer implements Tokenizable {
 
             this.lowercaseToken = tokenAfterQuote.toLowerCase(Locale.ROOT);
 
-            if (Quotation.doubleQuote().equals(tokenAfterQuote) && !"\\".equals(this.lastToken)) {
+            if (Quotation.DOUBLE_QUOTATION.getTag().equals(tokenAfterQuote) && !"\\".equals(this.lastToken)) {
                 break;
             }
         }
