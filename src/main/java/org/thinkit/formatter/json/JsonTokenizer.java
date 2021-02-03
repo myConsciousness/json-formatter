@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.formatter;
+package org.thinkit.formatter.json;
 
 import java.util.Locale;
 import java.util.StringTokenizer;

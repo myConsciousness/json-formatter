@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.formatter;
+package org.thinkit.formatter.json;
 
 import org.thinkit.common.catalog.Brace;
 import org.thinkit.common.catalog.Bracket;

@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.formatter;
+package org.thinkit.formatter.json;
 
 import org.thinkit.common.base.precondition.Preconditions;
 import org.thinkit.common.exception.LogicException;
@@ -21,8 +21,8 @@ import org.thinkit.formatter.common.Indentable;
 import org.thinkit.formatter.common.Line;
 import org.thinkit.formatter.common.Newline;
 import org.thinkit.formatter.common.Tokenizable;
-import org.thinkit.formatter.content.json.JsonDefaultIndentItemLoader;
-import org.thinkit.formatter.content.json.entity.JsonDefaultIndentItem;
+import org.thinkit.formatter.json.content.JsonDefaultIndentItemLoader;
+import org.thinkit.formatter.json.content.entity.JsonDefaultIndentItem;
 import org.thinkit.framework.content.ContentInvoker;
 
 import lombok.AccessLevel;

@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.formatter;
+package org.thinkit.formatter.json;
 
 /**
  * {@link JsonFormatter} クラスをコマンドラインから実行する際のエントリーポイントです。

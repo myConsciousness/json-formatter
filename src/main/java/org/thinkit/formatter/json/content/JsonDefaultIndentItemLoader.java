@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.formatter.content.json;
+package org.thinkit.formatter.json.content;
 
 import java.util.List;
 import java.util.Map;
@@ -20,7 +20,7 @@ import java.util.Set;
 
 import org.thinkit.api.catalog.Catalog;
 import org.thinkit.formatter.common.catalog.IndentType;
-import org.thinkit.formatter.content.json.entity.JsonDefaultIndentItem;
+import org.thinkit.formatter.json.content.entity.JsonDefaultIndentItem;
 import org.thinkit.framework.content.Attribute;
 import org.thinkit.framework.content.Condition;
 import org.thinkit.framework.content.Content;

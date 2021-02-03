@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.formatter.content.json.entity;
+package org.thinkit.formatter.json.content.entity;
 
 import java.io.Serializable;
 
