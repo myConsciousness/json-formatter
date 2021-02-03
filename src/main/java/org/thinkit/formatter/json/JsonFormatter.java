@@ -66,7 +66,7 @@ public final class JsonFormatter implements Formatter {
             if (Brace.START.getTag().equals(lowercaseToken) || Bracket.START.getTag().equals(lowercaseToken)) {
                 appender.appendToken().incrementIndent().appendNewline();
             } else if (Brace.END.getTag().equals(lowercaseToken) || Bracket.END.getTag().equals(lowercaseToken)) {
-                appender.decrementIndent().appendToken();
+                appender.decrementIndent().appendNewline().appendToken();
             } else if (Delimiter.COMMA.getTag().equals(lowercaseToken)) {
                 appender.appendToken().appendNewline();
 
@@ -75,13 +75,11 @@ public final class JsonFormatter implements Formatter {
                 if (Bracket.END.getTag().equals(lastToken)) {
                     appender.appendNewline();
                 }
-            } else if (Delimiter.COMMA.getTag().equals(lowercaseToken)) {
-                appender.appendToken().appendSpace();
             } else {
                 appender.appendToken();
             }
         }
 
-        return appender.toString();
+        return appender.appendNewline().toString();
     }
 }
