@@ -40,7 +40,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor(staticName = "newInstance")
-@ContentMapping(content = "formatter/json/JsonDefaultIndentItem")
+@ContentMapping(content = "org/thinkit/formatter/json/JsonDefaultIndentItem")
 public final class JsonDefaultIndentItemLoader implements Content<JsonDefaultIndentItem> {
 
     /**
