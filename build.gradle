@@ -72,6 +72,16 @@ dependencies {
     implementation 'org.thinkit.api.catalog:catalog-api:v1.0.2'
 }
 
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        showStandardStreams true
+        events 'started', 'skipped', 'passed', 'failed'
+        exceptionFormat 'full'
+    }
+}
+
 lombok {
     version = "1.18.16"
 }
@@ -85,16 +95,6 @@ task delombok( type: DelombokTask ) {
                 args( it, '-d', "${buildDir}/${delombok.name}" )
             }
         }
-    }
-}
-
-test {
-    useJUnitPlatform()
-
-    testLogging {
-        showStandardStreams true
-        events 'started', 'skipped', 'passed', 'failed'
-        exceptionFormat 'full'
     }
 }
 
