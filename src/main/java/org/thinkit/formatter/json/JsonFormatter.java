@@ -14,7 +14,6 @@
 
 package org.thinkit.formatter.json;
 
-import org.thinkit.formatter.common.Formatter;
 import org.thinkit.formatter.common.Tokenizable;
 import org.thinkit.formatter.json.catalog.Brace;
 import org.thinkit.formatter.json.catalog.Bracket;
