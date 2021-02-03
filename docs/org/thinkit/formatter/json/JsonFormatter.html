@@ -81,12 +81,12 @@ loadScripts(document, 'script');</script>
 <section class="description">
 <dl class="notes">
 <dt>すべての実装されたインタフェース:</dt>
-<dd><code>org.thinkit.formatter.common.Formatter</code></dd>
+<dd><code><a href="Formatter.html" title="org.thinkit.formatter.json内のインタフェース">Formatter</a></code></dd>
 </dl>
 <hr>
 <pre>public final class <span class="type-name-label">JsonFormatter</span>
 extends <a href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Object.html" title="java.lang内のクラスまたはインタフェース" class="external-link">Object</a>
-implements org.thinkit.formatter.common.Formatter</pre>
+implements <a href="Formatter.html" title="org.thinkit.formatter.json内のインタフェース">Formatter</a></pre>
 <div class="block">JSON文字列を整形する処理を定義したフォーマッタクラスです。
  <p>
  <a href="JsonFormatter.html" title="org.thinkit.formatter.json内のクラス"><code>JsonFormatter</code></a> クラスのインスタンス生成時に渡されたJSON文字列が <code>""</code> の場合、
@@ -122,7 +122,9 @@ implements org.thinkit.formatter.common.Formatter</pre>
 <tr class="row-color" id="i1">
 <td class="col-first"><code><a href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/String.html" title="java.lang内のクラスまたはインタフェース" class="external-link">String</a></code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#format(java.lang.String)">format</a></span>&#8203;(@NonNull <a href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/String.html" title="java.lang内のクラスまたはインタフェース" class="external-link">String</a>&nbsp;json)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">引数として渡された <code>unformatted</code> に格納された文字列を整形し返却します。</div>
+</td>
 </tr>
 <tr class="alt-color" id="i2">
 <td class="col-first"><code>static <a href="JsonFormatter.html" title="org.thinkit.formatter.json内のクラス">JsonFormatter</a></code></td>
@@ -167,9 +169,15 @@ implements org.thinkit.formatter.common.Formatter</pre>
 <h3>format</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/String.html" title="java.lang内のクラスまたはインタフェース" class="external-link">String</a></span>&nbsp;<span class="member-name">format</span>&#8203;(<span class="parameters">@NonNull
 @NonNull <a href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/String.html" title="java.lang内のクラスまたはインタフェース" class="external-link">String</a>&nbsp;json)</span></div>
+<div class="block"><span class="descfrm-type-label">インタフェースからコピーされた説明:&nbsp;<code><a href="Formatter.html#format(java.lang.String)">Formatter</a></code></span></div>
+<div class="block">引数として渡された <code>unformatted</code> に格納された文字列を整形し返却します。</div>
 <dl class="notes">
 <dt>定義:</dt>
-<dd><code>format</code>&nbsp;インタフェース内&nbsp;<code>org.thinkit.formatter.common.Formatter</code></dd>
+<dd><code><a href="Formatter.html#format(java.lang.String)">format</a></code>&nbsp;インタフェース内&nbsp;<code><a href="Formatter.html" title="org.thinkit.formatter.json内のインタフェース">Formatter</a></code></dd>
+<dt>パラメータ:</dt>
+<dd><code>json</code> - 整形されていないJSON文字列</dd>
+<dt>戻り値:</dt>
+<dd>整形された文字列</dd>
 </dl>
 </section>
 </li>

@@ -15,8 +15,8 @@
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="all-classes-index-page">
-<script type="text/javascript">var data = {"i0":4,"i1":4,"i2":4,"i3":2,"i4":2,"i5":2,"i6":2,"i7":4};
-var tabs = {65535:["t0","\u3059\u3079\u3066\u306E\u30AF\u30E9\u30B9"],2:["t2","\u30AF\u30E9\u30B9\u306E\u6982\u8981"],4:["t3","\u5217\u6319\u578B\u306E\u6982\u8981"]};
+<script type="text/javascript">var data = {"i0":4,"i1":4,"i2":4,"i3":1,"i4":2,"i5":2,"i6":2,"i7":2,"i8":4};
+var tabs = {65535:["t0","\u3059\u3079\u3066\u306E\u30AF\u30E9\u30B9"],1:["t1","\u30A4\u30F3\u30BF\u30D5\u30A7\u30FC\u30B9\u306E\u6982\u8981"],2:["t2","\u30AF\u30E9\u30B9\u306E\u6982\u8981"],4:["t3","\u5217\u6319\u578B\u306E\u6982\u8981"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
 var tableTab = "table-tab";
@@ -59,7 +59,7 @@ loadScripts(document, 'script');</script>
 <h1 title="すべてのクラス" class="title">すべてのクラス</h1>
 </div>
 <div class="type-summary" id="all-classes-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="all-classes-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="active-table-tab">すべてのクラス</button><button role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="table-tab" onclick="show(2);">クラスの概要</button><button role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="table-tab" onclick="show(4);">列挙型の概要</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="all-classes-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="active-table-tab">すべてのクラス</button><button role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="table-tab" onclick="show(1);">インタフェースの概要</button><button role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="table-tab" onclick="show(2);">クラスの概要</button><button role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="table-tab" onclick="show(4);">列挙型の概要</button></div>
 <div id="all-classes-table.tabpanel" role="tabpanel">
 <table class="summary-table" aria-labelledby="t0">
 <thead>
@@ -88,28 +88,34 @@ loadScripts(document, 'script');</script>
 </th>
 </tr>
 <tr class="row-color" id="i3">
-<td class="col-first"><a href="org/thinkit/formatter/json/content/entity/JsonDefaultIndentItem.html" title="org.thinkit.formatter.json.content.entity内のクラス">JsonDefaultIndentItem</a></td>
+<td class="col-first"><a href="org/thinkit/formatter/json/Formatter.html" title="org.thinkit.formatter.json内のインタフェース">Formatter</a></td>
 <th class="col-last" scope="row">
-<div class="block">コンテンツ「JSON既定インデント項目」の値を管理するデータクラスです。</div>
+<div class="block">整形処理を行うフォーマッターを抽象化したインターフェースです。</div>
 </th>
 </tr>
 <tr class="alt-color" id="i4">
-<td class="col-first"><a href="org/thinkit/formatter/json/content/entity/JsonDefaultIndentItem.JsonDefaultIndentItemBuilder.html" title="org.thinkit.formatter.json.content.entity内のクラス">JsonDefaultIndentItem.JsonDefaultIndentItemBuilder</a></td>
-<th class="col-last" scope="row">&nbsp;</th>
-</tr>
-<tr class="row-color" id="i5">
-<td class="col-first"><a href="org/thinkit/formatter/json/content/JsonDefaultIndentItemLoader.html" title="org.thinkit.formatter.json.content内のクラス">JsonDefaultIndentItemLoader</a></td>
+<td class="col-first"><a href="org/thinkit/formatter/json/content/entity/JsonDefaultIndent.html" title="org.thinkit.formatter.json.content.entity内のクラス">JsonDefaultIndent</a></td>
 <th class="col-last" scope="row">
-<div class="block">コンテンツ「JSON既定インデント項目」の情報をロードするコンテンツクラスです。</div>
+<div class="block">コンテンツ「JSON既定インデント」の値を管理するデータクラスです。</div>
 </th>
 </tr>
+<tr class="row-color" id="i5">
+<td class="col-first"><a href="org/thinkit/formatter/json/content/entity/JsonDefaultIndent.JsonDefaultIndentBuilder.html" title="org.thinkit.formatter.json.content.entity内のクラス">JsonDefaultIndent.JsonDefaultIndentBuilder</a></td>
+<th class="col-last" scope="row">&nbsp;</th>
+</tr>
 <tr class="alt-color" id="i6">
+<td class="col-first"><a href="org/thinkit/formatter/json/content/JsonDefaultIndentLoader.html" title="org.thinkit.formatter.json.content内のクラス">JsonDefaultIndentLoader</a></td>
+<th class="col-last" scope="row">
+<div class="block">コンテンツ「JSON既定インデント」の情報をロードするコンテンツクラスです。</div>
+</th>
+</tr>
+<tr class="row-color" id="i7">
 <td class="col-first"><a href="org/thinkit/formatter/json/JsonFormatter.html" title="org.thinkit.formatter.json内のクラス">JsonFormatter</a></td>
 <th class="col-last" scope="row">
 <div class="block">JSON文字列を整形する処理を定義したフォーマッタクラスです。</div>
 </th>
 </tr>
-<tr class="row-color" id="i7">
+<tr class="alt-color" id="i8">
 <td class="col-first"><a href="org/thinkit/formatter/json/catalog/Quotation.html" title="org.thinkit.formatter.json.catalog内の列挙型">Quotation</a></td>
 <th class="col-last" scope="row">
 <div class="block">クオーテーションを管理するカタログです。</div>
