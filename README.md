@@ -1,5 +1,5 @@
 ![Build](https://img.shields.io/badge/Build-Automated-2980b9.svg?style=for-the-badge)
-![Latest Version](https://img.shields.io/badge/Latest_Version-v1.0.1-27ae60.svg?style=for-the-badge)
+![Latest Version](https://img.shields.io/badge/Latest_Version-v1.0.2-27ae60.svg?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache_2.0-e74c3c.svg?style=for-the-badge)</br>
 ![Java CI with Gradle](https://github.com/myConsciousness/json-formatter/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
 
@@ -7,6 +7,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [What is it?](#what-is-it)
@@ -53,7 +54,7 @@ By default, the formatting process is performed according to the following rules
 <dependency>
   <groupId>org.thinkit.formatter</groupId>
   <artifactId>json-formatter</artifactId>
-  <version>v1.0.1</version>
+  <version>v1.0.2</version>
 </dependency>
 
 <servers>
@@ -80,7 +81,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.thinkit.formatter:json-formatter:v1.0.1'
+    implementation 'org.thinkit.formatter:json-formatter:v1.0.2'
 }
 ```
 
