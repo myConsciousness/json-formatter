@@ -20,14 +20,13 @@ import java.util.Set;
 
 import org.thinkit.api.catalog.Catalog;
 import org.thinkit.formatter.common.catalog.IndentType;
-import org.thinkit.formatter.json.content.entity.JsonDefaultIndentItem;
+import org.thinkit.formatter.json.content.entity.JsonDefaultIndent;
 import org.thinkit.framework.content.Attribute;
 import org.thinkit.framework.content.Condition;
 import org.thinkit.framework.content.Content;
 import org.thinkit.framework.content.annotation.ContentMapping;
 
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
@@ -39,9 +38,9 @@ import lombok.ToString;
  */
 @ToString
 @EqualsAndHashCode
-@NoArgsConstructor(staticName = "newInstance")
+JsonDefaultIndentLoaderme = "newInstance")
 @ContentMapping(content = "org/thinkit/formatter/json/JsonDefaultIndentItem")
-public final class JsonDefaultIndentItemLoader implements Content<JsonDefaultIndentItem> {
+public final class JsonDefaultIndentLoader implements Content<JsonDefaultIndent> {
 
     /**
      * コンテンツ要素定数
@@ -78,11 +77,11 @@ public final class JsonDefaultIndentItemLoader implements Content<JsonDefaultInd
     }
 
     @Override
-    public JsonDefaultIndentItem execute() {
+    public JsonDefaultIndent execute() {
 
         final Map<String, String> content = this.loadContent(this).get(0);
 
-        return JsonDefaultIndentItem.builder()
+        return JsonDefaultIndent.builder()
                 .indentType(Catalog.getEnum(IndentType.class,
                         Integer.parseInt(content.get(ContentAttribute.INDENT_TYPE.getString()))))
                 .indent(Integer.parseInt(content.get(ContentAttribute.INDENT.getString()))).build();

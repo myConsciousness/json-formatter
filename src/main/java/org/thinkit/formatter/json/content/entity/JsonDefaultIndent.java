@@ -19,12 +19,9 @@ import java.io.Serializable;
 import org.thinkit.formatter.common.catalog.IndentType;
 import org.thinkit.framework.content.entity.ContentEntity;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -36,9 +33,9 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Builder(toBuilder = true)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public final class JsonDefaultIndentItem implements ContentEntity, Serializable {
+JsonDefaultIndentccess = AccessLevel.PRIVATE)
+JsonDefaultIndentcess = AccessLevel.PRIVATE, force = true)
+public final class JsonDefaultIndent implements ContentEntity, Serializable {
 
     /**
      * シリアルバージョンUID
