@@ -27,19 +27,20 @@ import org.thinkit.framework.content.Content;
 import org.thinkit.framework.content.annotation.ContentMapping;
 
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 /**
- * コンテンツ「JSON既定インデント項目」の情報をロードするコンテンツクラスです。
+ * コンテンツ「JSON既定インデント」の情報をロードするコンテンツクラスです。
  *
  * @author Kato Shinya
  * @since 1.0.0
  */
 @ToString
 @EqualsAndHashCode
-JsonDefaultIndentLoaderme = "newInstance")
-@ContentMapping(content = "org/thinkit/formatter/json/JsonDefaultIndentItem")
+@NoArgsConstructor(staticName = "newInstance")
+@ContentMapping(content = "org/thinkit/formatter/json/JsonDefaultIndent")
 public final class JsonDefaultIndentLoader implements Content<JsonDefaultIndent> {
 
     /**

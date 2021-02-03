@@ -19,13 +19,16 @@ import java.io.Serializable;
 import org.thinkit.formatter.common.catalog.IndentType;
 import org.thinkit.framework.content.entity.ContentEntity;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * コンテンツ「JSON既定インデント項目」の値を管理するデータクラスです。
+ * コンテンツ「JSON既定インデント」の値を管理するデータクラスです。
  *
  * @author Kato Shinya
  * @since 1.0.0
@@ -33,8 +36,8 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Builder(toBuilder = true)
-JsonDefaultIndentccess = AccessLevel.PRIVATE)
-JsonDefaultIndentcess = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JsonDefaultIndent implements ContentEntity, Serializable {
 
     /**
